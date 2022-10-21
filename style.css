@@ -1,0 +1,59 @@
+* {
+  box-sizing: border-box;
+}
+
+body {
+  width: 100vw;
+  height: 100vh;
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+:root {
+  --cell-size: 120px;
+}
+
+.cell {
+  padding: 20px;
+  border: 2px solid black;
+  border-radius: 16px;
+  cursor: pointer;
+  font: 30px "Inter";
+}
+
+.cell:hover {
+  background-color: rgb(227, 223, 223) ;
+}
+
+.image {
+  width: 100%;
+}
+
+.game-field-flex {
+  --columns: 3;
+  --gap: 16px;
+  --gap-count: calc(var(--columns) - 1);
+
+  /* TODO: вынести границы ключ в переменные (12px)*/
+  width: calc(var(--cell-size) * var(--columns) + 12px + var(--gap) * var(--gap-count));
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--gap);
+}
+
+
+.game-field-flex > .cell {
+  width: var(--cell-size);
+  height: var(--cell-size);
+}
+
+
+
+.game-field-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  grid-template-rows: repeat(3, 1fr);
+  gap: 8px
+}
